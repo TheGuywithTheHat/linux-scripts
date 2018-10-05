@@ -1,0 +1,1 @@
+watch -cn10 'git -c color.ui=always status | sed "s/\x1b\[m/\x1b\[00m/"'
