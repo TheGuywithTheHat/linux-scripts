@@ -7,4 +7,4 @@ C_WARN="\x1b\[93m"
 C_ERROR="\x1b\[91m"
 C_ID="\x1b\[34m"
 
-sed -r "s/([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])(\s+)([0-9][0-9]:[0-9][0-9]:[0-9][0-9][,.][0-9][0-9][0-9])(\s+)([A-Z]+)(\s+)\[([a-zA-Z0-9_.-]+)\]/\1\2$C_TIME\3$C_RESET\4$C_LEVEL\5$C_RESET\6$C_ID[\7]$C_RESET/g" | sed -r "s/${C_LEVEL}WARN/${C_WARN}WARN/g" | sed -r "s/${C_LEVEL}ERROR/${C_ERROR}ERROR/g"
+sed -ur "s/([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])(\s+)([0-9][0-9]:[0-9][0-9]:[0-9][0-9][,.][0-9][0-9][0-9])(\s+)([A-Z]+)(\s+)(\[[a-zA-Z0-9_.-]+\])/\1\2$C_TIME\3$C_RESET\4$C_LEVEL\5$C_RESET\6$C_ID\7$C_RESET/g" | sed -ur "s/${C_LEVEL}WARN/${C_WARN}WARN/g" | sed -ur "s/${C_LEVEL}ERROR/${C_ERROR}ERROR/g"
